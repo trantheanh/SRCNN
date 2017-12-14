@@ -179,7 +179,6 @@ def load_batch(path, batch_size = 1, path_cache = []):
         
         # Batch full or cache is empty -> break
         if (len(batch) == batch_size) | (len(path_cache) == 0):
-            print("Batch full, break the loop")
             break
     
     return (np.asarray(batch), path_cache)
