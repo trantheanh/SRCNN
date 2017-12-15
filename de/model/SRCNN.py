@@ -92,6 +92,7 @@ class SRCNN(object):
             while True:
                 # Fill data to batch & cache the others
                 batch, path_cache = dimage.load_batch(self.sample_dir, self.batch_size, path_cache)
+                print(batch.shape)
                 
                 # Train
                 batch_input, batch_label = self.get_data_from_batch(batch)
