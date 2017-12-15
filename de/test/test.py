@@ -28,7 +28,7 @@ with tf.Session() as sess:
                   label_size = 3840,
                   image_channel = 3,
                   batch_size = 1,
-                  num_epoch = 10000,
+                  num_epoch = 9999,
                   checkpoint_dir = '/checkpoint',
                   sample_dir = '/../../../Train')
     
