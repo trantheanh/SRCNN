@@ -5,6 +5,8 @@ Created on Thu Dec 14 18:15:11 2017
 
 @author: anh_tt
 """
+import sys
+sys.path.insert(0, '/../')
 
 from de.model.SRCNN import SRCNN
 import tensorflow as tf
