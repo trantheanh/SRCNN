@@ -9,6 +9,11 @@ Created on Thu Dec 14 18:15:11 2017
 from de.model.SRCNN import SRCNN
 import tensorflow as tf
 
+flags = tf.app.flags
+flags.DEFINE_integer("epoch", 10, "Number of epoch [10]")
+flags.DEFINE_integer("batch_size", 128, "The size of batch images [128]")
+flags.DEFINE_integer("image_size", 3840, "The size of image to train [3840]")
+
 with tf.Session() as sess:
     srcnn = SRCNN(sess,
                   image_size = 852,
