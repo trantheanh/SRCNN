@@ -162,6 +162,7 @@ Return:
 """
 def load_batch(path, batch_size = 1, path_cache = []):
     batch = []
+    print("PATH " + path)
     
     if (len(path_cache) == 0):
         # Already run throught epoch -> Refill cache
