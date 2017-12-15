@@ -166,6 +166,7 @@ def load_batch(path, batch_size = 1, path_cache = []):
     if (len(path_cache) == 0):
         # Already run throught epoch -> Refill cache
         path_cache = io.read_dir(path, ['jpg','jpeg','bmp','png','JPEG'])
+        print("path_cache: " + str(len(path_cache)))
         
     for image_path in path_cache:
         #Load image 
