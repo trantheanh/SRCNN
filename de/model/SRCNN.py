@@ -34,8 +34,11 @@ class SRCNN(object):
         self.build_model()
         
     def build_model(self):
-        self.images = tf.placeholder(tf.float32, [None, self.image_size, self.image_size, self.image_channel])
-        self.labels = tf.placeholder(tf.float32, [None, self.label_size, self.label_size, self.image_channel])
+#        self.images = tf.placeholder(tf.float32, [None, self.image_size, self.image_size, self.image_channel])
+#        self.labels = tf.placeholder(tf.float32, [None, self.label_size, self.label_size, self.image_channel])
+        
+        self.images = tf.placeholder(tf.float32, [None, None, None, self.image_channel])
+        self.labels = tf.placeholder(tf.float32, [None, None, None, self.image_channel])
         
         # Weight dictionary
         self.weights = {
@@ -109,10 +112,11 @@ class SRCNN(object):
             print("Epoch " + str(epoch + 1) + " finish in " + str(end_time - start_time))
                 
     def get_data_from_batch(self, batch):
+        s = 8.
         scale = 1. * self.label_size / self.image_size
-        batch_input = scipy.ndimage.interpolation.zoom(batch, (1.,1./(2.*scale), 1./(2*scale), 1), prefilter = False)
+        batch_input = scipy.ndimage.interpolation.zoom(batch, (1.,1./(s*scale), 1./(s*scale), 1), prefilter = False)
         batch_input = scipy.ndimage.interpolation.zoom(batch_input, (1., scale/1., scale/1., 1), prefilter = False)
-        batch_label = scipy.ndimage.interpolation.zoom(batch, (1., 1./2., 1./2., 1), prefilter = False)
+        batch_label = scipy.ndimage.interpolation.zoom(batch, (1., 1./s, 1./s, 1), prefilter = False)
         
         return batch_input, batch_label
     

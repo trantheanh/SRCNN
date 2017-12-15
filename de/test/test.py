@@ -6,8 +6,9 @@ Created on Thu Dec 14 18:15:11 2017
 @author: anh_tt
 """
 import sys
+import os
 # Server path
-sys.path.insert(0, '/home/sepml/workspace/neural_artistic_style/dataGenerator/SRCNN-Tensorflow/de_lib/')
+sys.path.insert(0, os.getcwd() + "/../../")
 
 # Local path
 #sys.path.insert(0, '/Users/anh_tt/Documents/workspace/MachineLearning/DE_LIB/DE_LIB')
@@ -24,8 +25,8 @@ import de.util.IO as io
 
 with tf.Session() as sess:
     srcnn = SRCNN(sess,
-                  image_size = 1920,
-                  label_size = 1920,
+                  image_size = 852,
+                  label_size = 852,
                   image_channel = 3,
                   batch_size = 1,
                   num_epoch = 9999,
