@@ -64,8 +64,6 @@ def read_dir(path, extensions = []):
     data_path = []
     data_dir = os.getcwd()
     
-    print(os.path.join(data_dir + path, "*.png"))
-    
     for extension in extensions:
         data_path = data_path + glob.glob(os.path.join(data_dir + path, "*." + extension))
     
