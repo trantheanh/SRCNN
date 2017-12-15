@@ -22,7 +22,8 @@ import de.util.IO as io
 #flags.DEFINE_integer("batch_size", 128, "The size of batch images [128]")
 #flags.DEFINE_integer("image_size", 3840, "The size of image to train [3840]")
 
-io.read_dir("../../../Train", ['jpg','jpeg','bmp','png','JPEG'])
+data = io.read_dir("../../../Train", ['jpg','jpeg','bmp','png','JPEG'])
+print(data)
 
 #with tf.Session() as sess:
 #    srcnn = SRCNN(sess,
