@@ -66,6 +66,7 @@ def read_dir(path, extensions = []):
     
     for extension in extensions:
         data_path = data_path + glob.glob(os.path.join(data_dir + path, "*." + extension))
+        print("data_path " + str(data_path))
     
     return data_path
 
