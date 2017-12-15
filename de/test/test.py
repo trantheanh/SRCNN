@@ -16,12 +16,12 @@ flags.DEFINE_integer("image_size", 3840, "The size of image to train [3840]")
 
 with tf.Session() as sess:
     srcnn = SRCNN(sess,
-                  image_size = 852,
-                  label_size = 852,
+                  image_size = 3840,
+                  label_size = 3840,
                   image_channel = 3,
-                  batch_size = 1,
-                  num_epoch = 10,
+                  batch_size = 4,
+                  num_epoch = 10000,
                   checkpoint_dir = '/checkpoint',
-                  sample_dir = '')
+                  sample_dir = '../../../Train')
     
     srcnn.train()
