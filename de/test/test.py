@@ -25,8 +25,8 @@ import de.util.IO as io
 
 with tf.Session() as sess:
     srcnn = SRCNN(sess,
-                  image_size = 852,
-                  label_size = 852,
+                  image_size = 480,
+                  label_size = 960,
                   image_channel = 3,
                   batch_size = 1,
                   num_epoch = 9999,

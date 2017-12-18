@@ -112,11 +112,15 @@ class SRCNN(object):
             print("Epoch " + str(epoch + 1) + " finish in " + str(end_time - start_time))
                 
     def get_data_from_batch(self, batch):
-        s = 8.
-        scale = 2.#1. * self.label_size / self.image_size
-        batch_input = scipy.ndimage.interpolation.zoom(batch, (1.,1./(s*scale), 1./(s*scale), 1), prefilter = False)
+        force_width_scale = self.image_size/batch.shape[1] 
+        force_height_scale = self.image_size/batch.shape[2]
+        batch = scipy.ndimage.interpolation.zoom(batch, (1.,force_width_scale, force_height_scale, 1), prefilter = False)
+        
+        scale = self.label_size / self.image_size
+        
+        batch_input = scipy.ndimage.interpolation.zoom(batch, (1.,1./(scale), 1./(scale), 1), prefilter = False)
         batch_input = scipy.ndimage.interpolation.zoom(batch_input, (1., scale/1., scale/1., 1), prefilter = False)
-        batch_label = scipy.ndimage.interpolation.zoom(batch, (1., 1./s, 1./s, 1), prefilter = False)
+        batch_label = scipy.ndimage.interpolation.zoom(batch, (1., 1., 1., 1), prefilter = False)
         
         return batch_input, batch_label
     
