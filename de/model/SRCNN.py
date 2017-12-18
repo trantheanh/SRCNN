@@ -114,7 +114,7 @@ class SRCNN(object):
     def get_data_from_batch(self, batch):
         force_width_scale = self.image_size/batch.shape[1] 
         force_height_scale = self.image_size/batch.shape[2]
-        batch = scipy.ndimage.interpolation.zoom(batch, (1.,force_width_scale, force_height_scale, 1), prefilter = False)
+#        batch = scipy.ndimage.interpolation.zoom(batch, (1.,force_width_scale, force_height_scale, 1), prefilter = False)
         
         scale = self.label_size / self.image_size
         
