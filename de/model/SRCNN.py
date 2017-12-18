@@ -109,6 +109,10 @@ class SRCNN(object):
                 if (len(path_cache) == 0):
                     break
             end_time = time.time()
+            
+            if (epoch % 10 == 0):
+                self.save(counter)
+            
             print("Epoch " + str(epoch + 1) + " finish in " + str(end_time - start_time))
                 
     def get_data_from_batch(self, batch):
