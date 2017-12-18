@@ -88,6 +88,12 @@ class SRCNN(object):
         # Step counter
         counter = 0
         
+        # Load model
+        if self.load():
+            print("[*] Load SUCCESS")
+        else:
+            print("[!] Load FAILED")
+        
         print("Start Training: ****")
         for epoch in range(self.num_epoch):
             path_cache = []
@@ -110,10 +116,20 @@ class SRCNN(object):
                     break
             end_time = time.time()
             
-            if (epoch % 10 == 0):
+            if (epoch % 1 == 0):
                 self.save(counter)
             
             print("Epoch " + str(epoch + 1) + " finish in " + str(end_time - start_time))
+            
+    def predict(self, images):
+        # Load model
+        if self.load(self.checkpoint_dir):
+            print("[*] Load SUCCESS")
+        else:
+            print("[!] Load FAILED")
+            
+        result = self.pred.eval({self.images: images, self.labels: images})
+        return
                 
     def get_data_from_batch(self, batch):
         force_width_scale = self.image_size/(batch.shape[1]*1.) 

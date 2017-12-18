@@ -30,7 +30,7 @@ with tf.Session() as sess:
                   image_channel = 3,
                   batch_size = 1,
                   num_epoch = 9999,
-                  checkpoint_dir = '/checkpoint',
-                  sample_dir = '/../../../Train')
+                  checkpoint_dir = 'checkpoint',
+                  sample_dir = '/../../../Train') #/../../../Train
     
     srcnn.train()

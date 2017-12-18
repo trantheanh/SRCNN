@@ -1,0 +1,3 @@
+model_checkpoint_path: "SCRNN.model-20"
+all_model_checkpoint_paths: "SCRNN.model-10"
+all_model_checkpoint_paths: "SCRNN.model-20"
