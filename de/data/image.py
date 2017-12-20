@@ -26,7 +26,7 @@ Return:
     image: tensor 3D (width, height, channel)
 """
 def load_image(path):
-    image = scipy.misc.imread(path, flatten = False, mode = 'YCbCr')
+    image = scipy.misc.imread(path, flatten = False, mode = 'RGB')
     
     return image
 
