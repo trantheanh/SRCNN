@@ -191,7 +191,7 @@ def export_image_from_batch(batch, path):
     print("Start export all image to path: " + path)
     
     for i in range(batch.shape[0]):
-        img = batch[i]#unnormalize_image(batch[i])
+        img = unnormalize_image(batch[i])
         save_image(img, path + "result_" + str(i+1) + ".png")
         
     return

@@ -148,7 +148,7 @@ class SRCNN(object):
         batch_input = scipy.ndimage.interpolation.zoom(batch_input, (1., scale/1., scale/1., 1), prefilter = False)
         batch_label = batch
         
-        return batch_input, batch_label
+        return dimage.normalize_image(batch_input), dimage.normalize_image(batch_label)
     
     def save(self, step):
         print("**Saving checkpoint** ...")
