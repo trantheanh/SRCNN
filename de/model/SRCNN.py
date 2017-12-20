@@ -121,14 +121,20 @@ class SRCNN(object):
             
             print("Epoch " + str(epoch + 1) + " finish in " + str(end_time - start_time))
             
-    def predict(self, images):
+    def predict(self):
         # Load model
-        if self.load(self.checkpoint_dir):
+        if self.load():
             print("[*] Load SUCCESS")
         else:
             print("[!] Load FAILED")
             
-        result = self.pred.eval({self.images: images, self.labels: images})
+        # Load images
+        batch, _ = dimage.load_batch(self.sample_dir, self.batch_size, [])
+        batch_input, batch_label = self.get_data_from_batch(batch)
+        result = self.pred.eval({self.images: batch_input, self.labels: batch_label})
+        
+        dimage.export_image_from_batch(result, "")
+        
         return
                 
     def get_data_from_batch(self, batch):
@@ -163,7 +169,7 @@ class SRCNN(object):
     
     def load(self):
         print("**Loading checkpoint** ...")
-        model_dir = "%s_%s" % ("srcnn", self.label_size)
+        model_dir = "%s_%s" % ("srcnn", 480)
         checkpoint_dir = os.path.join(self.checkpoint_dir, model_dir)
         
         # Load checkpoint
