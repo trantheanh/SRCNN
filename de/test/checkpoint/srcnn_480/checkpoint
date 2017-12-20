@@ -1,4 +1,6 @@
-model_checkpoint_path: "SCRNN.model-972"
-all_model_checkpoint_paths: "SCRNN.model-324"
+model_checkpoint_path: "SCRNN.model-1944"
 all_model_checkpoint_paths: "SCRNN.model-648"
 all_model_checkpoint_paths: "SCRNN.model-972"
+all_model_checkpoint_paths: "SCRNN.model-1296"
+all_model_checkpoint_paths: "SCRNN.model-1620"
+all_model_checkpoint_paths: "SCRNN.model-1944"
